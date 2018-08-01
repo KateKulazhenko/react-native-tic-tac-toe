@@ -2,19 +2,13 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button } from "native-base";
 
-const WelcomeScreen = props => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Button
-        transparent
-        onPress={() => props.navigation.navigate("SignInScreen")}
-      >
+      <Button transparent onPress={() => navigation.navigate("SignInScreen")}>
         <Text>Log In</Text>
       </Button>
-      <Button
-        transparent
-        onPress={() => props.navigation.navigate("SignUpScreen")}
-      >
+      <Button transparent onPress={() => navigation.navigate("SignUpScreen")}>
         <Text>Sign Up</Text>
       </Button>
     </View>

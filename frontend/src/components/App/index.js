@@ -1,30 +1,25 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
+import { PersistGate } from "redux-persist/es/integration/react";
 
 import createStore from "../../store";
 import Navigator from "../Navigation";
 
-const { store } = createStore();
+import styles from "./styles";
+
+const { store, persistor } = createStore();
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <View style={styles.container}>
-          <Navigator />
-        </View>
+        <PersistGate persistor={persistor}>
+          <View style={styles.container}>
+            <Navigator />
+          </View>
+        </PersistGate>
       </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#EDFAF5",
-    fontFamily: "Helvetica, Arial, sans-serif"
-  }
-});

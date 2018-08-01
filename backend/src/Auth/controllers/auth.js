@@ -11,7 +11,6 @@ export const signin = async (req, res) => {
 };
 
 export const signup = async (req, res) => {
-  console.log(req);
   const { username } = req.body;
 
   const existedUser = await dalUser.findByQuery({
