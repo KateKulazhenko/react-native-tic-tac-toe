@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Input, Item } from "native-base";
 import { Text } from "react-native";
 
-const FormInput = ({ input, meta, placeholder }) => {
+const FormInput = ({ input, meta, placeholder, secureTextEntry }) => {
   return (
     <Item>
       <Input
@@ -11,6 +11,7 @@ const FormInput = ({ input, meta, placeholder }) => {
         error={meta.submitFailed && !!meta.error}
         onChangeText={input.onChange}
         value={input.value}
+        secureTextEntry={secureTextEntry}
       />
       {meta.error &&
         meta.submitFailed && (

@@ -6,6 +6,7 @@ import { Field, reduxForm } from "redux-form";
 import FormInput from "../../../../../Shared/Forms/components/Input";
 
 import { Button } from "native-base";
+import styles from "./styles";
 
 const SignUp = ({ handleSubmit }) => {
   return (
@@ -22,36 +23,14 @@ const SignUp = ({ handleSubmit }) => {
         component={FormInput}
         placeholder="password"
         type="password"
+        secureTextEntry
       />
-      <Button block onPress={handleSubmit}>
-        <Text>Sign Up</Text>
+      <Button rounded block onPress={handleSubmit} style={styles.button}>
+        <Text style={styles.buttonText}>Sign Up</Text>
       </Button>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: "90%",
-    padding: 24,
-    backgroundColor: "#E5F8F1",
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: "#CDCFD1",
-    borderRadius: 5
-  },
-  title: {
-    textAlign: "center",
-    color: "#bfbd87",
-    fontSize: 20
-  },
-  button: {
-    width: "150px",
-    height: "42px",
-    margin: "24px auto",
-    color: "#fff"
-  }
-});
 
 SignUp.propTypes = {
   handleSubmit: PropTypes.func.isRequired
