@@ -8,10 +8,10 @@ import FormInput from "../../../../../Shared/Forms/components/Input";
 import { Button } from "native-base";
 import styles from "./styles";
 
-const SignUp = ({ handleSubmit }) => {
+const SignIn = ({ handleSubmit }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
+      <Text style={styles.title}>Sign In</Text>
       <Field
         name="username"
         component={FormInput}
@@ -26,14 +26,14 @@ const SignUp = ({ handleSubmit }) => {
         secureTextEntry
       />
       <Button rounded block onPress={handleSubmit} style={styles.button}>
-        <Text style={styles.buttonText}>Sign Up</Text>
+        <Text style={styles.buttonText}>Sign In</Text>
       </Button>
     </View>
   );
 };
 
-SignUp.propTypes = {
+SignIn.propTypes = {
   handleSubmit: PropTypes.func.isRequired
 };
 
-export default compose(reduxForm())(SignUp);
+export default compose(reduxForm())(SignIn);

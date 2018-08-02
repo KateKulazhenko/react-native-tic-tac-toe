@@ -31,6 +31,9 @@ const styles = StyleSheet.create({
   buttonGame: {
     backgroundColor: "#d0cd91",
     marginBottom: 15
+  },
+  buttonLogOut: {
+    backgroundColor: "#a8c3cf"
   }
 });
 
