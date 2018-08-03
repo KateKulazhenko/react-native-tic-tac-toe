@@ -25,7 +25,13 @@ const SignIn = ({ handleSubmit }) => {
         type="password"
         secureTextEntry
       />
-      <Button rounded block onPress={handleSubmit} style={styles.button}>
+      <Button
+        rounded
+        block
+        transparent
+        onPress={handleSubmit}
+        style={styles.button}
+      >
         <Text style={styles.buttonText}>Sign In</Text>
       </Button>
     </View>

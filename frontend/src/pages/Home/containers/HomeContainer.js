@@ -21,7 +21,11 @@ class HomeContainer extends React.Component {
     logOut();
   }
   render() {
-    const props = { handleLogOut: this.handleLogOut };
+    console.log(this.props);
+    const props = {
+      handleLogOut: this.handleLogOut,
+      navigation: this.props.navigation
+    };
 
     return <Home {...props} />;
   }
