@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 import { Button } from "native-base";
+import Icon from "react-native-vector-icons/Ionicons";
 
 import styles from "./styles";
 
-const Home = ({ handleLogOut, navigation }) => {
+const Home = ({ handleLogOut, navigation, userName }) => {
   return (
     <View style={styles.container}>
       <View style={styles.logo}>

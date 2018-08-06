@@ -1,5 +1,7 @@
 import { createSwitchNavigator } from "react-navigation";
 
+// import AccountHeader from "../modules/Shared/AccountHeader";
+
 import Route from "../components/Route";
 import WelcomeScreen from "../modules/Auth/components/WelcomeScreen";
 import SignUp from "../modules/Auth/pages/SignUp";
@@ -15,17 +17,17 @@ const Navigator = createSwitchNavigator(
     WelcomeScreen: {
       screen: WelcomeScreen,
       navigationOptions: {
-        gesturesEnabled: false
+        title: "SignIn"
       }
     },
     SignUpScreen: {
-      screen: SignUp,
-      navigationOptions: {
-        gesturesEnabled: false
-      }
+      screen: SignUp
     },
     SignInScreen: {
-      screen: SignIn
+      screen: SignIn,
+      navigationOptions: {
+        title: "SignIn"
+      }
     },
     HomeScreen: {
       screen: Home
@@ -35,7 +37,16 @@ const Navigator = createSwitchNavigator(
     }
   },
   {
-    initialRouteName: "AuthScreen"
+    initialRouteName: "AuthScreen",
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: "#f4511e"
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold"
+      }
+    }
   }
 );
 
