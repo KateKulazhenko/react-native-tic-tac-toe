@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as authActionsCreators from "../../../modules/Auth/actions";
+import * as authSelectors from "../../../modules/Auth/selectors";
 
 import Home from "../view/Home";
 
@@ -13,6 +14,10 @@ class HomeContainer extends React.Component {
     this.handleLogOut = this.handleLogOut.bind(this);
   }
 
+  static navigationOptions = {
+    title: "title"
+  };
+
   handleLogOut() {
     const {
       authActions: { logOut }
@@ -21,10 +26,10 @@ class HomeContainer extends React.Component {
     logOut();
   }
   render() {
-    console.log(this.props);
     const props = {
       handleLogOut: this.handleLogOut,
-      navigation: this.props.navigation
+      navigation: this.props.navigation,
+      userName: this.props.userName
     };
 
     return <Home {...props} />;
@@ -34,14 +39,19 @@ class HomeContainer extends React.Component {
 HomeContainer.propTypes = {
   authActions: PropTypes.shape({
     logOut: PropTypes.func.isRequired
-  }).isRequired
+  }).isRequired,
+  userName: PropTypes.string.isRequired
 };
+
+const mapStateToProps = state => ({
+  userName: authSelectors.getUserName(state)
+});
 
 const mapDispatchToProps = dispatch => ({
   authActions: bindActionCreators(authActionsCreators, dispatch)
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(HomeContainer);

@@ -8,7 +8,6 @@ function* callApi(action) {
   const { payload, type } = action;
   const apiMethodName = _.camelCase(type);
   const requestData = api[apiMethodName](payload);
-  console.log(action);
 
   try {
     const response = yield call(request, requestData);
