@@ -4,6 +4,8 @@ import { View, Text } from "react-native";
 import { Button } from "native-base";
 import Icon from "react-native-vector-icons/Ionicons";
 
+import Game from "../../../../modules/Game/components/Game";
+
 import styles from "./styles";
 
 const Home = ({ handleLogOut, navigation, userName }) => {

@@ -15,7 +15,14 @@ const GameComponent = ({
 }) => {
   return (
     <View>
-      {userCross && userZero ? (
+      <Game
+        field={field}
+        handleStep={handleStep}
+        isActiveButton={isActiveButton}
+        winCombination={winCombination}
+        message={message}
+      />
+      {/* {userCross && userZero ? (
         <Game
           field={field}
           handleStep={handleStep}
@@ -25,7 +32,7 @@ const GameComponent = ({
         />
       ) : (
         <Loading />
-      )}
+      )} */}
     </View>
   );
 };
