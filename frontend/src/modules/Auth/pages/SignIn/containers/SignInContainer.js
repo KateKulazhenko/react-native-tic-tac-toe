@@ -6,12 +6,25 @@ import * as actionCreators from "../actions";
 import { SIGNIN_FORM } from "../constants";
 import SignIn from "../views/SignIn";
 
+import { Button } from "native-base";
+
 class SignInContainer extends Component {
   constructor(props) {
     super(props);
 
     this.onSubmit = this.onSubmit.bind(this);
   }
+
+  static navigationOptions = {
+    headerTitle: "SignIn",
+    headerRight: (
+      <Button
+        onPress={() => navigation.nagate("WelcomeScreen")}
+        title="Back"
+        color="#000"
+      />
+    )
+  };
 
   onSubmit(data) {
     const {

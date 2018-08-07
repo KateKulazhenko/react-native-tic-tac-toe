@@ -11,7 +11,7 @@ import styles from "./styles";
 import SocketConnect from "../../../../pages/Socket/SocketConnect";
 
 const Game = ({
-  field,
+  // field,
   handleStep,
   isActiveButton,
   winCombination,
@@ -21,50 +21,57 @@ const Game = ({
     disabled: !isActiveButton
   });
 
+  const field = [null, null, null, null, null, null, null, null, null];
+
   return (
-    <View style={styles.gameWrapper}>
+    <View style={styles.container}>
       <View style={styles.header}>
-        <Button style={styles.link} component={CustomLink} to="/home">
+        <Button
+          style={styles.link}
+          onPress={() => navigation.navigate("HomeScreen")}
+        >
           <Text>Back</Text>
         </Button>
         <View style={styles.logo}>
-          <Text style={styles.logoFirst}>O</Text>
-          <Text style={styles.logoSecond}>X</Text>
+          <Text style={styles.logoZero}>O</Text>
+          <Text style={styles.logoCross}>X</Text>
         </View>
       </View>
-      <View style={gameWrapperClass}>
-        {_.map(field, (cell, index) => {
-          const winCell = classNames(styles.cell, {
-            [styles.winCell]: _.includes(winCombination, index)
-          });
+      <View style={styles.gameWrapper}>
+        <View style={gameWrapperClass}>
+          {_.map(field, (cell, index) => {
+            // const winCell = classNames(styles.cell, {
+            //   [styles.winCell]: _.includes(winCombination, index)
+            // });
 
-          return _.isNil(cell) ? (
-            <Button
-              key={index}
-              style={styles.cell}
-              onPress={() => handleStep(index)}
-              disabled={!isActiveButton}
-            >
-              &nbsp;
-            </Button>
-          ) : (
-            <View key={index} style={winCell}>
-              {cell === 1 ? (
-                <View style={styles.cross}>X</View>
-              ) : (
-                <View style={styles.zero}>O</View>
-              )}
-            </View>
-          );
-        })}
+            return _.isNil(cell) ? (
+              <Button
+                key={index}
+                style={styles.cell}
+                onPress={() => handleStep(index)}
+                disabled={!isActiveButton}
+              >
+                <Text>&nbsp;</Text>
+              </Button>
+            ) : (
+              <View key={index}>
+                {cell === 1 ? (
+                  <Text style={styles.cross}>X</Text>
+                ) : (
+                  <Text style={styles.zero}>O</Text>
+                )}
+              </View>
+            );
+          })}
+        </View>
       </View>
       <View style={styles.turnName}>
-        {isActiveButton ? <View>Your Turn</View> : <View>Opponent Turn</View>}
-        {_.isNil(winCombination) && <View>{message}</View>}
+        {isActiveButton ? <Text>Your Turn</Text> : <Text>Opponent Turn</Text>}
+        {_.isNil(winCombination) && <Text>{message}</Text>}
       </View>
       {message && (
         <Button style={styles.button} component={CustomLink} to="/game">
-          Start New Game
+          <Text>Start New Game</Text>
         </Button>
       )}
     </View>

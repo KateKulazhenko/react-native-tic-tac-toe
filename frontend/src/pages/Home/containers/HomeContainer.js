@@ -14,10 +14,6 @@ class HomeContainer extends React.Component {
     this.handleLogOut = this.handleLogOut.bind(this);
   }
 
-  static navigationOptions = {
-    title: "title"
-  };
-
   handleLogOut() {
     const {
       authActions: { logOut }

@@ -1,24 +1,25 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  header: {
-    display: "flex"
+  container: {
+    width: "90%"
   },
   logo: {
-    padding: "10px 0",
-    textAlign: "center"
+    flexDirection: "row",
+    paddingTop: 10,
+    paddingBottom: 10,
+    justifyContent: "center"
   },
-  logoFirst: {
+  logoZero: {
     color: "#a8c3cf",
-    fontSize: 30
+    fontSize: 65
   },
-  logoSecond: {
+  logoCross: {
     color: "#d0cd91",
-    fontSize: 30
+    fontSize: 65
   },
   gameWrapper: {
-    display: "flex",
-    flexDirection: "column"
+    flexDirection: "row"
   },
   gameField: {
     width: 300,
@@ -27,7 +28,6 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   cell: {
-    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,
